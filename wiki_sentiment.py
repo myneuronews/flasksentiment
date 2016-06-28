@@ -3,8 +3,8 @@ import requests
 import json 
 from tokens import * 
 
-def get_sentiment_from_url(url='https://en.wikipedia.org/wiki/Monty_Python'):
-    r = requests.get(url)
+def get_sentiment_from_url(search_url='https://en.wikipedia.org/wiki/Monty_Python'):
+    r = requests.get(search_url)
 
     soup = BeautifulSoup(r.text, "html.parser")
     l = soup.find_all('p')
@@ -19,7 +19,7 @@ def get_sentiment_from_url(url='https://en.wikipedia.org/wiki/Monty_Python'):
     r = requests.post(url, data=json.dumps(data), headers=headers)
 
     content = json.loads(r.content)
-    return content['documents'][0]['score'], str(h[0].text) 
+    return content['documents'][0]['score'], str(h[0].text), search_url  
 
 
 
