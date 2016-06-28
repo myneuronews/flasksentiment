@@ -1,8 +1,8 @@
 #app.py 
 from flask import Flask, render_template, session, redirect, url_for 
-from flask.ext.wtf import Form 
+from flask_wtf import Form 
 from wtforms import StringField, SubmitField
-from flask.ext.bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
 from wtforms.validators import Required
 
 from wiki_sentiment import * 
